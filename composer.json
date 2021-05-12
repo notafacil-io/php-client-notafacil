@@ -33,6 +33,5 @@
     "config": {
         "sort-packages": true,
         "platform-check": false
-    },
-    "lock": false
+    }
 }
