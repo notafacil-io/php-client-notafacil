@@ -1,5 +1,6 @@
 <?php
-namespace NotaFacil\Client\Auth;
+namespace NotaFacil\Client;
+
 
 
 use NotaFacil\Client\BaseConfig;
@@ -11,7 +12,7 @@ use NotaFacil\Client\Exceptions\NotaFacilException;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class AuthClientNotaFacil extends BaseConfig
+class AuthNotaFacil extends BaseConfig
 {
     protected $dataAuth;
 
@@ -36,9 +37,9 @@ class AuthClientNotaFacil extends BaseConfig
      *
      * @param array $credentials
      *
-     * @return AuthClientNotaFacil
+     * @return AuthNotaFacil
      */
-    public function attempt(array $credentials):AuthClientNotaFacil
+    public function attempt(array $credentials):AuthNotaFacil
     {
 
         AuthValidator::validateInputValidate($credentials);

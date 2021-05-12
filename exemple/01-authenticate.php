@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include_once(__DIR__.'/../vendor/autoload.php');
-use NotaFacil\Client\Auth\AuthClientNotaFacil;
+
 
 $credentials = [
     'login'      => 'nome_usuario',
@@ -12,13 +12,13 @@ $credentials = [
     'secret_key' => 'secret-key-softhouse',
 ];
 
-$dataAuth = new AuthClientNotaFacil();
+$dataAuth = new \NotaFacil\Client\AuthNotaFacil();
 $result = $dataAuth->attempt($credentials);
 $auth = $result->getDataAuth();
 
 // Retorna uma instancia da classe AuthClient
-dump($result);
-// Recebe os dados da credencial autenticado
-dump($auth);
+var_dump($result);
+// Recebe os dados do cliente do nota facil autenticado
+var_dump($auth);
 
 die();
