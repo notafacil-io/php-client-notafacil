@@ -22,7 +22,7 @@ O modo simples de usar esse pacote
 ```php
 <?php
 include_once(__DIR__.'/../vendor/autoload.php');
-use NotaFacil\Client\Auth\AuthClient;
+use NotaFacil\Client\Auth\AuthClientNotaFacil;
 
 $credentials = [
     'login'      => 'nome_usuario',
@@ -30,7 +30,7 @@ $credentials = [
     'secret_key' => 'secret-key-softhouse',
 ];
 
-$dataAuth = new AuthClient();
+$dataAuth = new AuthClientNotaFacil();
 $result = $dataAuth->attempt($credentials);
 $auth = $result->getDataAuth();
 

@@ -11,7 +11,7 @@ use NotaFacil\Client\Exceptions\NotaFacilException;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class AuthClient extends BaseConfig
+class AuthClientNotaFacil extends BaseConfig
 {
     protected $dataAuth;
 
@@ -36,9 +36,9 @@ class AuthClient extends BaseConfig
      *
      * @param array $credentials
      *
-     * @return AuthClient
+     * @return AuthClientNotaFacil
      */
-    public function attempt(array $credentials):AuthClient
+    public function attempt(array $credentials):AuthClientNotaFacil
     {
 
         AuthValidator::validateInputValidate($credentials);
