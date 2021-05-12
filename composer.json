@@ -1,0 +1,33 @@
+{
+    "name": "notafacil-io/client-nf-php",
+    "description": "Pacote de integração Nota Fácil | Autenticação",
+    "type": "library",
+    "version": "1.0.0",
+    "keywords": ["notafiscal", "api", "nfe", "nfce", "nota fiscal", "nf-e", "nfc-e", "notafacil", "nota fácil", "sefaz"],
+    "license": "MIT",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Equipe Nota Fácil",
+            "email": "suporte@notafacil.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "NotaFacil\\Client\\":"src/NotaFacil"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NotaFacil\\Client\\Test\\":"src/Test"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2",
+        "phpunit/phpunit": "^6.5"
+    }
+}
