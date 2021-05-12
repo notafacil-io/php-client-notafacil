@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "keywords": ["notafiscal", "api", "nfe", "nfce", "nota fiscal", "nf-e", "nfc-e", "notafacil", "nota fácil", "sefaz"],
     "license": "MIT",
-    "prefer-stable": true,
     "authors": [
         {
             "name": "Equipe Nota Fácil",
