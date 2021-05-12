@@ -5,3 +5,39 @@
 
 Este pacote foi construído com o objetivo de simplificar a integração com a API do [Nota Fácil](https://notafacil.io).
 Para obter informações sobre o funcionamento e contratações acesse [nosso site](https://notafacil.io) ou a [documentação oficial](https://docs.notafacil.io/?version=latest).
+
+---
+Instalação
+------------
+
+```bash
+composer require notafacil-io/client-nf-php
+```
+
+Exemplo de uso
+-----
+
+O modo simples de usar esse pacote
+
+```php
+<?php
+include_once(__DIR__.'/../vendor/autoload.php');
+use NotaFacil\Client\Auth\AuthClient;
+
+$credentials = [
+    'login'      => 'nome_usuario',
+    'password'   => 'senha_usuario',
+    'secret_key' => 'secret-key-softhouse',
+];
+
+$dataAuth = new AuthClient();
+$result = $dataAuth->attempt($credentials);
+$auth = $result->getDataAuth();
+
+// Retorna uma instancia da classe AuthClient
+dump($result);
+// Recebe os dados da credencial autenticado
+dump($auth);
+
+die();
+```
