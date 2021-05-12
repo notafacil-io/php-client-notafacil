@@ -11,7 +11,7 @@ Instalação
 ------------
 
 ```bash
-composer require notafacil-io/client-nf-php
+composer require notafacil-io/client-notafacil-php
 ```
 
 Exemplo de uso
