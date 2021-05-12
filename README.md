@@ -3,6 +3,9 @@
 [![Packagist](https://badgen.net/packagist/v/notafacil-io/client-notafacil-php)](https://packagist.org/packages/notafacil-io/client-notafacil-php)
 [![MIT License](https://badgen.net/github/license/notafacil-io/client-notafacil-php)](https://opensource.org/licenses/MIT)
 [![Releases](https://badgen.net/github/releases/notafacil-io/client-notafacil-php)](https://github.com/notafacil-io/client-notafacil-php/releases)
+![Issues](https://badgen.net/packagist/ghi/notafacil-io/client-notafacil-php)
+![Lang](https://badgen.net/packagist/lang/notafacil-io/client-notafacil-php)
+![PHP Version](https://badgen.net/packagist/php/notafacil-io/client-notafacil-php)
 
 Este pacote foi construído com o objetivo de simplificar a integração com a API do [Nota Fácil](https://notafacil.io).
 Para obter informações sobre o funcionamento e contratações acesse [nosso site](https://notafacil.io) ou a [documentação oficial](https://docs.notafacil.io/?version=latest).
