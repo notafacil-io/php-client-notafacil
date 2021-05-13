@@ -11,15 +11,19 @@
             "role": "Owner"
         },
         {
+            "name": "Mauricio Lang",
+            "email": "mauricioandrey.lang@gmail.com",
+            "homepage": "https://www.gestaoetech.com.br",
+            "role": "Head de tecnologia e desenvolvimento"
+        },
+        {
             "name": "Claudio Alexssandro Lino",
             "email": "claudio.lino.dev@gmail.com",
-            "homepage": "https://github.com/codigosecafe",
             "role": "Developer"
         },
         {
             "name": "Matheus Falconde",
             "email": "matheus_felipe25@live.com",
-            "homepage": "https://github.com/theusFalconde ",
             "role": "Developer"
         },
         {
