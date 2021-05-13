@@ -12,7 +12,7 @@ Este é um PHP Client para API do [Nota Fácil](https://notafacil.io) e você po
 
 Para isso, você precisa de uma conta devidademente cadastrada no Nota Fácil como Softhouse. 
 
-Para obter informações sobre o funcionamento e contratações acesse [nosso site](https://notafacil.io).
+Para obter informações sobre o funcionamento da nossa API e contratações acesse [nosso site](https://notafacil.io).
 
 ---
 <img src="https://notafacil.io/images/header/logo_header.svg" height='85px' />
