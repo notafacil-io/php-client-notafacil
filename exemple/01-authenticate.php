@@ -14,7 +14,7 @@ $credentials = [
 
 $dataAuth = new \NotaFacil\Client\AuthNotaFacil();
 $result = $dataAuth->attempt($credentials);
-$auth = $result->getDataAuth();
+$auth = $result->responseAuth();
 
 // Retorna uma instancia da classe AuthClient
 var_dump($result);

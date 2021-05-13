@@ -71,7 +71,7 @@ class AuthNotaFacil extends BaseConfig
      *
      * @return Array
      */
-    public function getDataAuth():Array
+    public function responseAuth():Array
     {
         return (array)$this->dataAuth;
     }

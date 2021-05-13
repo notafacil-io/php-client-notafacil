@@ -17,7 +17,7 @@ class AuthNotaFacilTest extends TestCase
         $credentials = $dataAuth->config['credentials-valid'];
 
         $resonse = $dataAuth->attempt($credentials);
-        $dataAuth = $resonse->getDataAuth();
+        $dataAuth = $resonse->responseAuth();
         
         $this->assertTrue(($resonse instanceof AuthNotaFacil && !empty($dataAuth['user'])));
     }

@@ -1,14 +1,20 @@
 {
     "name": "notafacil-io/client-notafacil-php",
-    "description": "Pacote de integração Nota Fácil | Autenticação",
+    "description": "Pacote de integração Nota Fácil | PHP Client Nota Fácil",
     "type": "library",
-    "version": "1.0.0",
-    "keywords": ["notafiscal", "api", "nfe", "nfce", "nota fiscal", "nf-e", "nfc-e", "notafacil", "nota fácil", "sefaz"],
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
+        
         {
             "name": "Equipe Nota Fácil",
-            "email": "suporte@notafacil.io"
+            "email": "suporte@notafacil.io",
+            "role": "Owner"
+        },
+        {
+            "name": "Claudio Alexssandro Lino",
+            "email": "codigosecafe@gmail.com",
+            "role": "Developer"
         }
     ],
     "require": {
@@ -33,9 +39,51 @@
         "branch-alias": {
             "dev-main": "1.x-dev"
         }
-    },
-    "config": {
-        "sort-packages": true,
-        "platform-check": false
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
