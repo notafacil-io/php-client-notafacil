@@ -7,10 +7,10 @@
 ![Lang](https://badgen.net/packagist/lang/notafacil-io/php-client-notafacil)
 ![PHP Version](https://badgen.net/packagist/php/notafacil-io/php-client-notafacil)
 
-Este é um PHP Client para API do [Nota Fácil](https://notafacil.io) e você pode usá-lo como uma dependência para adicionar as seguintes funcionalidades em seu projeto.
+Este é um PHP Client para API do [Nota Fácil](https://notafacil.io) e você pode adicionar em seu projeto para ter acesso as seguintes funcionalidades em seu projeto de maneira fácil.
 - Autenticação
 
-Para usar isso, você precisa de uma conta devidademente cadastrada no Nota Fácil como Softhouse. 
+Para isso, você precisa de uma conta devidademente cadastrada no Nota Fácil como Softhouse. 
 
 Para obter informações sobre o funcionamento e contratações acesse [nosso site](https://notafacil.io).
 
