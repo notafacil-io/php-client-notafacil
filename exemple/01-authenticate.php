@@ -1,24 +1,25 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 include_once(__DIR__.'/../vendor/autoload.php');
 
+use NotaFacil\Client\Exceptions\NotaFacilException;
 
-$credentials = [
-    'login'      => 'nome_usuario',
-    'password'   => 'senha_usuario',
-    'secret_key' => 'secret-key-softhouse',
-];
 
-$dataAuth = new \NotaFacil\Client\AuthNotaFacil();
-$result = $dataAuth->attempt($credentials);
-$auth = $result->responseAuth();
+try {
+    $credentials = [
+        'login'      => 'NOME_USUARIO',
+        'password'   => 'SENHA_USUARIO',
+        'secret_key' => 'SECRET_KEY_SOFTHOUSE'
+    ];
+    
+    $dataAuth = ( new \NotaFacil\Client\AuthNotaFacil() )->attempt($credentials);
+    $auth = $result->responseAuth();
+    
+    
+    dump($dataAuth); // Retorna uma instancia da classe AuthClient
+    
+    dump($auth); // Recebe os dados do cliente do nota facil autenticado
 
-// Retorna uma instancia da classe AuthClient
-var_dump($result);
-// Recebe os dados do cliente do nota facil autenticado
-var_dump($auth);
-
-die();
+} catch (NotaFacilException $th) {
+    dump($th);
+}
