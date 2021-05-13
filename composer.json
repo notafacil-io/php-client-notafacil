@@ -12,7 +12,20 @@
         },
         {
             "name": "Claudio Alexssandro Lino",
-            "email": "codigosecafe@gmail.com",
+            "email": "claudio.lino.dev@gmail.com",
+            "homepage": "https://github.com/codigosecafe",
+            "role": "Developer"
+        },
+        {
+            "name": "Matheus Falconde",
+            "email": "matheus_felipe25@live.com",
+            "homepage": "https://github.com/theusFalconde ",
+            "role": "Developer"
+        },
+        {
+            "name": "Lucas Galvão Nunes",
+            "email": "contato@lucasgnunes.dev",
+            "homepage": "https://lucasgnunes.dev",
             "role": "Developer"
         }
     ],

@@ -75,7 +75,7 @@ Exemplo simples para autenticar em nossa API. Caso não seja possivel autenticar
 
 ```php
 <?php
-include_once(__DIR__.'/../vendor/autoload.php');
+include_once(__DIR__.'/vendor/autoload.php');
 
 use NotaFacil\Client\Exceptions\NotaFacilException;
 
@@ -104,7 +104,7 @@ try {
 --
 ## Problemas? <span id="issue"></span>
 
-Sinta-se à vontade para abrir uma `issue` no repositório para qualquer problema ou solicitação de recurso. Para obter detalhes que enviar sua solicitação, verifique o arquivo [CONTRIBUTING][contributing].
+Sinta-se à vontade para abrir uma `issue` no repositório para qualquer problema ou solicitação de recurso. Para obter detalhes de como enviar sua solicitação, verifique o arquivo [CONTRIBUTING][contributing].
 
 Se entretanto for algo que requer nossa atenção iminente, sinta-se à vontade para nos contatar [suporte@notafacil.io](mailto:suporte@notafacil.io).
 
