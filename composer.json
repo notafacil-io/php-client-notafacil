@@ -1,5 +1,5 @@
 {
-    "name": "notafacil-io/client-notafacil-php",
+    "name": "notafacil-io/php-client-notafacil",
     "description": "Pacote de integração Nota Fácil | PHP Client Nota Fácil",
     "type": "library",
     "license": "MIT",
