@@ -1,11 +1,11 @@
 # Pacote de integração Nota Fácil | PHP Client Nota Fácil
 
-[![Packagist](https://badgen.net/packagist/v/notafacil-io/client-notafacil-php)](https://packagist.org/packages/notafacil-io/client-notafacil-php)
-[![MIT License](https://badgen.net/github/license/notafacil-io/client-notafacil-php)](https://opensource.org/licenses/MIT)
-[![Releases](https://badgen.net/github/releases/notafacil-io/client-notafacil-php)](https://github.com/notafacil-io/client-notafacil-php/releases)
-![Issues](https://badgen.net/packagist/ghi/notafacil-io/client-notafacil-php)
-![Lang](https://badgen.net/packagist/lang/notafacil-io/client-notafacil-php)
-![PHP Version](https://badgen.net/packagist/php/notafacil-io/client-notafacil-php)
+[![Packagist](https://badgen.net/packagist/v/notafacil-io/php-client-notafacil)](https://packagist.org/packages/notafacil-io/php-client-notafacil)
+[![MIT License](https://badgen.net/github/license/notafacil-io/php-client-notafacil)](https://opensource.org/licenses/MIT)
+[![Releases](https://badgen.net/github/releases/notafacil-io/php-client-notafacil)](https://github.com/notafacil-io/php-client-notafacil/releases)
+![Issues](https://badgen.net/packagist/ghi/notafacil-io/php-client-notafacil)
+![Lang](https://badgen.net/packagist/lang/notafacil-io/php-client-notafacil)
+![PHP Version](https://badgen.net/packagist/php/notafacil-io/php-client-notafacil)
 
 Este é um PHP Client para API do [Nota Fácil](https://notafacil.io) e você pode usá-lo como uma dependência para adicionar as seguintes funcionalidades em seu projeto.
 - Autenticação
@@ -29,19 +29,19 @@ Para obter informações sobre o funcionamento e contratações acesse [nosso si
 ## Informações Gerais <span id="general-info"></span>
 Para o versionamneto usamos o esquema [Semantic Version](https://semver.org/lang/pt-BR)
 
-Publicado sob [MIT License](https://github.com/notafacil-io/client-notafacil-php/blob/main/LICENSE)
+Publicado sob [MIT License](https://github.com/notafacil-io/php-client-notafacil/blob/main/LICENSE)
 
 ## Instalação <span id="installation"></span>
 Para começar a usar a biblioteca, como dependência em seu arquivo `composer.json` como mostrado abaixo.
 ```json
 "require":{
-    "notafacil-io/client-notafacil-php": "1.0.0"
+    "notafacil-io/php-client-notafacil": "^1.0"
 }
 ```
 
 
 ```bash
-composer require notafacil-io/client-notafacil-php
+composer require notafacil-io/php-client-notafacil
 ```
 
 Exemplo de uso
