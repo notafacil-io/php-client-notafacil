@@ -18,8 +18,13 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "guzzlehttp/guzzle": "^7.3"
+        "php": "^7.2.5",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+ 
+    "require-dev": {
+        "symfony/var-dumper": "^5.2",
+        "phpunit/phpunit": "^8.5"
     },
     "autoload": {
         "psr-4": {
@@ -31,15 +36,18 @@
             "NotaFacil\\Client\\Test\\":"src/Test"
         }
     },
-    "require-dev": {
-        "symfony/var-dumper": "^5.2",
-        "phpunit/phpunit": "^6.5"
-    },
     "extra": {
         "branch-alias": {
             "dev-main": "1.x-dev"
         }
-    }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
 
 
