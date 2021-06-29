@@ -15,6 +15,7 @@ use NotaFacil\Client\Exceptions\NotaFacilException;
 class AuthNotaFacil extends BaseConfig
 {
     protected $dataAuth;
+    protected $consumerID;
 
     public function __construct($lang = 'pt-BR')
     {
@@ -59,8 +60,13 @@ class AuthNotaFacil extends BaseConfig
 
         } catch (ClientException $th) {
 
+
             $response = \json_decode($th->getResponse()->getBody()->getContents(), true);
-            throw (new NotaFacilException($response['data']['message']))->withStatus($response['data']['code']);
+
+            $message = (isset($response['data']['message']))? $response['data']['message'] : $response['message'];
+            $code = (isset($response['data']['code']))? $response['data']['code'] : $response['code'];
+
+            throw (new NotaFacilException($message))->withStatus($code);
         }
 
         return $this;
@@ -74,6 +80,10 @@ class AuthNotaFacil extends BaseConfig
     public function responseAuth():Array
     {
         return (array)$this->dataAuth;
+    }
+    public function setConsumerID($consumerID):String
+    {
+       $this->consumerID = $consumerID;
     }
 
     /**
@@ -98,7 +108,8 @@ class AuthNotaFacil extends BaseConfig
     protected function invokeLogin()
     {
         $client = new \GuzzleHttp\Client();
-        $urlLogin = $this->base_url() . '/v1/auth/login';
+        $urlLogin = $this->base_url() . $this->endpoint->login;
+
         return $client->post($urlLogin,
             [
                 'headers' => ['Content-Type' => 'application/json', 'secret-key' => $this->dataAuth['secret-key']],
@@ -110,6 +121,8 @@ class AuthNotaFacil extends BaseConfig
                     ]
                 )]
         );
+
+      
 
     }
 

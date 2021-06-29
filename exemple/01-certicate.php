@@ -9,10 +9,15 @@ try {
     $credentials = [
         'login'      => 'NOME_USUARIO',
         'password'   => 'SENHA_USUARIO',
-        'secret_key' => 'SECRET_KEY_SOFTHOUSE'
+        'secret_key' => 'SECRET_KEY_SOFTHOUSE',
+        
     ];
     
+
     $dataAuth = ( new \NotaFacil\Client\AuthNotaFacil() )->attempt($credentials);
+   
+   // $dataAuth->setConsumerID('PfRp5nxD5j4QjVnQY3Vd9Q==');
+
     $auth = $dataAuth->responseAuth();
     
     dump($dataAuth); // Retorna uma instancia da classe AuthClient
