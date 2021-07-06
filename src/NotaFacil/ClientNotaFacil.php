@@ -12,16 +12,18 @@ use NotaFacil\Client\Exceptions\NotaFacilException;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class AuthNotaFacil extends BaseConfig
+class ClientNotaFacil extends BaseConfig
 {
-    protected $dataAuth;
-    protected $consumerID;
+    public $dataAuth;
 
-    public function __construct($lang = 'pt-BR')
+    public function __construct()
     {
         parent::__construct();
+
+        
         $this->dataAuth = [
             'secret-key' =>'',
+            'consumer-id' => '',
             'login' =>'',
             'password' => '',
             'token-bearer' => '',
@@ -38,9 +40,9 @@ class AuthNotaFacil extends BaseConfig
      *
      * @param array $credentials
      *
-     * @return AuthNotaFacil
+     * @return ClientNotaFacil
      */
-    public function attempt(array $credentials):AuthNotaFacil
+    public function attempt(array $credentials):ClientNotaFacil
     {
 
         AuthValidator::validateInputValidate($credentials);
@@ -81,9 +83,26 @@ class AuthNotaFacil extends BaseConfig
     {
         return (array)$this->dataAuth;
     }
-    public function setConsumerID($consumerID):String
+
+    /**
+     *  Methood responsible for defining the data for the $consumerID parameter.
+     *
+     * @param [type] $consumerID
+     * @return String
+     */
+    public function setConsumerID($consumerID)
     {
-       $this->consumerID = $consumerID;
+       $this->dataAuth['consumer-id'] = $consumerID;
+    }
+    /**
+     *  Methood responsible for return the data $consumerID.
+     *
+     * @param [type] $consumerID
+     * @return String
+     */
+    public function getConsumerID():String
+    {
+       return (!empty($this->dataAuth['consumer-id']))? $this->dataAuth['consumer-id'] : '';
     }
 
     /**
@@ -108,7 +127,7 @@ class AuthNotaFacil extends BaseConfig
     protected function invokeLogin()
     {
         $client = new \GuzzleHttp\Client();
-        $urlLogin = $this->base_url() . $this->endpoint->login;
+        $urlLogin = $this->base_url() . $this->endpoint->autenticacao->login;
 
         return $client->post($urlLogin,
             [

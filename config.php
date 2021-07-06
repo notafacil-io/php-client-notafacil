@@ -5,6 +5,13 @@
 return [
     'base_url'  => 'https://api.notafacil.io',
     'endpoint' => [
-        'login' => '/v1/auth/login',
+        'autenticacao' => [
+            'login' => '/v1/auth/login',
+            'logout' => '/v1/auth/logout'
+        ],
+        'softhouse' => [
+            'logada' => '/v1/softhouse/logada',
+            'atualizar' => '/v1/softhouse/atualizar'
+        ]
     ],
 ];

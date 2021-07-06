@@ -1,12 +1,15 @@
 <?php
 namespace NotaFacil\Client;
 
+use NotaFacil\Client\Traits\CommonTrait;
 
 abstract class BaseConfig  
 {
+    use CommonTrait;
 
     public $config;
-    protected $endpoint;
+
+    public $endpoint;
    
 
     public function __construct()
@@ -14,27 +17,11 @@ abstract class BaseConfig
         $this->loadFile();
     }
 
-
-
     /**
-     * Methood responsible for returning the base of the URL for communication with the Nota Facil API
-     *
-     * @return String
-     */
-    public function base_url():String
-    {
-        return $this->config['base_url'];
-    }
-    /**
-     *  Methood responsible for returning the endpoint of the URL for communication with the Nota Facil API
+     * Method responsible for loading configuration data from our SDK
      *
      * @return void
      */
-    public function endpoint():Object
-    {
-        return (object)$this->config['endpoint'];
-    }
-
     private function loadFile()
     {
         $pathRoot = str_replace('src/NotaFacil', '', __DIR__);

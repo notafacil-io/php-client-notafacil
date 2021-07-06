@@ -2,10 +2,10 @@
 namespace NotaFacil\Client\Test;
 
 use PHPUnit\Framework\TestCase;
-use NotaFacil\Client\AuthNotaFacil;
+use NotaFacil\Client\ClientNotaFacil;
 use NotaFacil\Client\Exceptions\NotaFacilException;
 
-class AuthNotaFacilTest extends TestCase
+class ClientNotaFacilTest extends TestCase
 {
     /**
     * @test
@@ -13,13 +13,13 @@ class AuthNotaFacilTest extends TestCase
     public function shouldAttemptLoginWhithCredentialsWithValid()
     {
 
-        $dataAuth = new AuthNotaFacil();
+        $dataAuth = new ClientNotaFacil();
         $credentials = $dataAuth->config['credentials-valid'];
 
         $resonse = $dataAuth->attempt($credentials);
         $dataAuth = $resonse->responseAuth();
         
-        $this->assertTrue(($resonse instanceof AuthNotaFacil && !empty($dataAuth['user'])));
+        $this->assertTrue(($resonse instanceof ClientNotaFacil && !empty($dataAuth['user'])));
     }
 
    /**
@@ -29,7 +29,7 @@ class AuthNotaFacilTest extends TestCase
     {
         $this->expectException(NotaFacilException::class);
 
-        $dataAuth = new AuthNotaFacil();
+        $dataAuth = new ClientNotaFacil();
         $credentials = $dataAuth->config['credentials-invalid-softhouse'];
         
         $resonse = $dataAuth->attempt($credentials);
@@ -43,7 +43,7 @@ class AuthNotaFacilTest extends TestCase
     {
         $this->expectException(NotaFacilException::class);
 
-        $dataAuth = new AuthNotaFacil();
+        $dataAuth = new ClientNotaFacil();
         $credentials = $dataAuth->config['credentials-invalid-credentials'];
 
         $resonse = $dataAuth->attempt($credentials);
