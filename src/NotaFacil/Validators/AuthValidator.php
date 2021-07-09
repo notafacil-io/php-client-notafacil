@@ -1,7 +1,7 @@
 <?php
-namespace NotaFacil\Client\Validators;
+namespace NotaFacil\Common\Validators;
 
-use NotaFacil\Client\Exceptions\NotaFacilException;
+use NotaFacil\Common\Exceptions\NotaFacilException;
 
 /**
  * Class responsible for validate input data for authenticat
@@ -23,7 +23,7 @@ class AuthValidator
        self::validateKeysInput($credentials);
         foreach ($credentials as $key => $value) {
             if(empty($value)) {
-                throw (new NotaFacilException( 'O valor da chave '.$key.' não pode ser nula' ))->withStatus(400);
+                throw (new NotaFacilException( 'O valor da chave '.$key.' não pode ser nula' ))->withCode(400);
             }
         }
         
@@ -43,7 +43,7 @@ class AuthValidator
         $credentialsKey = ['login', 'password', 'secret_key'];
         foreach ($credentialsKey as $key) {
             if(!array_key_exists($key, $credentials)){
-                throw (new NotaFacilException( 'A chave '.$key.' é obrigatória ser informada' ))->withStatus(400);
+                throw (new NotaFacilException( 'A chave '.$key.' é obrigatória ser informada' ))->withCode(400);
             }
         }
     }

@@ -1,9 +1,9 @@
 <?php
-namespace NotaFacil\Client\Test;
+namespace NotaFacil\Common\Test;
 
 use PHPUnit\Framework\TestCase;
-use NotaFacil\Client\ClientNotaFacil;
-use NotaFacil\Client\Exceptions\NotaFacilException;
+use NotaFacil\Common\ClientNotaFacil;
+use NotaFacil\Common\Exceptions\NotaFacilException;
 
 class ClientNotaFacilTest extends TestCase
 {
@@ -13,13 +13,12 @@ class ClientNotaFacilTest extends TestCase
     public function shouldAttemptLoginWhithCredentialsWithValid()
     {
 
-        $dataAuth = new ClientNotaFacil();
-        $credentials = $dataAuth->config['credentials-valid'];
+        $clientNotaFacil = new ClientNotaFacil();
+        $credentials = $clientNotaFacil->getCredentials();
 
-        $resonse = $dataAuth->attempt($credentials);
-        $dataAuth = $resonse->responseAuth();
-        
-        $this->assertTrue(($resonse instanceof ClientNotaFacil && !empty($dataAuth['user'])));
+        $dataAuth = $clientNotaFacil->attempt($credentials['valid'])->getDataAuth();
+                                                // ->getResponse();
+        $this->assertTrue(($clientNotaFacil instanceof ClientNotaFacil && !empty($dataAuth['token-bearer'])));
     }
 
    /**
@@ -29,10 +28,10 @@ class ClientNotaFacilTest extends TestCase
     {
         $this->expectException(NotaFacilException::class);
 
-        $dataAuth = new ClientNotaFacil();
-        $credentials = $dataAuth->config['credentials-invalid-softhouse'];
-        
-        $resonse = $dataAuth->attempt($credentials);
+        $clientNotaFacil = new ClientNotaFacil();
+        $credentials = $clientNotaFacil->getCredentials();
+
+        $resonse = $clientNotaFacil->attempt($credentials['invalid-softhouse']);
         
     }
     
@@ -43,10 +42,10 @@ class ClientNotaFacilTest extends TestCase
     {
         $this->expectException(NotaFacilException::class);
 
-        $dataAuth = new ClientNotaFacil();
-        $credentials = $dataAuth->config['credentials-invalid-credentials'];
+        $clientNotaFacil = new ClientNotaFacil();
+        $credentials = $clientNotaFacil->getCredentials();
 
-        $resonse = $dataAuth->attempt($credentials);
+        $resonse = $clientNotaFacil->attempt($credentials['invalid-credentials']);
         
     }
     

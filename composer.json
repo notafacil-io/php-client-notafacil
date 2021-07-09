@@ -1,6 +1,6 @@
 {
-    "name": "notafacil-io/php-client-notafacil",
-    "description": "Pacote de integração Nota Fácil | PHP Client Nota Fácil",
+    "name": "notafacil-io/php-common-notafacil",
+    "description": "Pacote de integração Nota Fácil | PHP Common Nota Fácil",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -46,12 +46,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotaFacil\\Client\\":"src/NotaFacil"
+            "NotaFacil\\Common\\":"src/NotaFacil"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotaFacil\\Client\\Test\\":"src/Test"
+            "NotaFacil\\Common\\Test\\":"src/Test"
         }
     },
     "extra": {
