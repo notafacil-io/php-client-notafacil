@@ -10,7 +10,7 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class AuthService extends BaseService
+class AuthNotaFacil extends BaseService
 {
     protected $dataAuth;
     protected $dataResponse;
@@ -35,9 +35,9 @@ class AuthService extends BaseService
      *
      * @param array $credentials
      *
-     * @return AuthService
+     * @return AuthNotaFacil
      */
-    public function attempt(array $credentials): AuthService
+    public function attempt(array $credentials): AuthNotaFacil
     {
 
         AuthValidator::validateInputValidate($credentials);

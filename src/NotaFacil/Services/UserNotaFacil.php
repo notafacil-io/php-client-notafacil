@@ -2,10 +2,11 @@
 namespace NotaFacil\Common\Services;
 
 use NotaFacil\Common\Traits\RequestTrait;
+use NotaFacil\Common\Resources\NotaFacilResource;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class UserService extends BaseService
+class UserNotaFacil extends BaseService
 {
     use RequestTrait;
 
@@ -17,32 +18,32 @@ class UserService extends BaseService
         $this->credentialsNotaFacil = $credentialsNotaFacil;
     }
 
-    public function loggedData(): array
+    public function loggedData(): NotaFacilResource
     {
         return $this->request( $this->base_url() . $this->endpoint->user->logged );
     }
     
-    public function listAll(): array
+    public function listAll(): NotaFacilResource
     {
         return $this->request( $this->base_url() . $this->endpoint->user->listAll );
     }
 
-    public function showByID($idUser): array
+    public function showByID($idUser): NotaFacilResource
     {
         return $this->request( $this->base_url() . str_replace(':id', $idUser , $this->endpoint->user->byID) );
     }
 
-    public function addUser($payload): array
+    public function addUser($payload): NotaFacilResource
     {
         return $this->request( $this->base_url() . $this->endpoint->user->register, 'POST', $payload);
     }
 
-    public function updateUser($idUser, $payload): array
+    public function updateUser($idUser, $payload): NotaFacilResource
     {
         return $this->request( $this->base_url() . str_replace(':id', $idUser , $this->endpoint->user->update), 'PUT', $payload);
     }
 
-    public function deleteUser($idUser): array
+    public function deleteUser($idUser): NotaFacilResource
     {
         return $this->request( $this->base_url() . str_replace(':id', $idUser , $this->endpoint->user->delete), 'DELETE');
     }

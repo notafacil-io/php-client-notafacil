@@ -3,13 +3,12 @@ namespace NotaFacil\Common\Services;
 
 use NotaFacil\Common\ClientNotaFacil;
 use NotaFacil\Common\Traits\RequestTrait;
-use GuzzleHttp\Exception\ClientException;
-use NotaFacil\Common\Exceptions\NotaFacilException;
+use NotaFacil\Common\Resources\NotaFacilResource;
 
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class SofthouseService
+class SofthouseNotaFacil
 {
     use RequestTrait;
     public $clientNotaFacil;
@@ -19,12 +18,12 @@ class SofthouseService
         $this->clientNotaFacil = $clientNotaFacil;
     }
 
-    public function showData(): array
+    public function showData(): NotaFacilResource
     {
         $urlRequest = $this->clientNotaFacil->base_url() . $this->clientNotaFacil->endpoint->softhouse->logada;
         return $this->request($urlRequest);
     }
-    public function updateData($dataForUpdate): array
+    public function updateData($dataForUpdate): NotaFacilResource
     {
         $urlRequest = $this->clientNotaFacil->base_url() . $this->clientNotaFacil->endpoint->softhouse->atualizar;
         return $this->request($urlRequest, 'PUT', $dataForUpdate);
