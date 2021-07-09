@@ -1,5 +1,5 @@
 <?php
-namespace NotaFacil\Client\Exceptions;
+namespace NotaFacil\Common\Exceptions;
 
 
 
@@ -22,7 +22,7 @@ class NotaFacilException extends Exception
      *
      * @var integer
      */
-    public $status = 422;
+    public $code = 422;
 
     /**
      * Create a new exception instance.
@@ -55,7 +55,7 @@ class NotaFacilException extends Exception
             'error'   => true,
             'message' => $this->getMessage(),
             'data'    => $this->data
-        ], $this->status);
+        ], $this->code);
     }
 
     /**
@@ -73,15 +73,15 @@ class NotaFacilException extends Exception
     }
 
     /**
-     * Set the HTTP status code to be used for the response.
+     * Set the HTTP code code to be used for the response.
      *
-     * @param integer $status
+     * @param integer $code
      *
      * @return $this
      */
-    public function withStatus($status)
+    public function withCode($code)
     {
-        $this->status = $status;
+        $this->code = $code;
 
         return $this;
     }

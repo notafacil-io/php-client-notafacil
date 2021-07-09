@@ -77,7 +77,7 @@ Exemplo simples para autenticar em nossa API. Caso não seja possivel autenticar
 <?php
 include_once(__DIR__.'/vendor/autoload.php');
 
-use NotaFacil\Client\Exceptions\NotaFacilException;
+use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
     $credentials = [
@@ -86,7 +86,7 @@ try {
         'secret_key' => 'SECRET_KEY_SOFTHOUSE'
     ];
     
-    $dataAuth = ( new \NotaFacil\Client\AuthNotaFacil() )->attempt($credentials);
+    $dataAuth = ( new \NotaFacil\Common\ClientNotaFacil() )->attempt($credentials);
     $auth = $result->responseAuth();
     
     
