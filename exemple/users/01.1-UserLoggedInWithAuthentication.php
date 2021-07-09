@@ -7,10 +7,9 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 
 
 try {
-    $credentials = [
-        'login' => 'ma_silva_softhouse',
-        'password' => 'matheus_vhsys',
-        'secret_key' => 'softhouse_vhsys'
+    $credentialsToken = [
+        "consumer-id" => "",
+        "token-bearer" => "Bearer "
     ];
 
     $clientNotaFacil = new AuthNotaFacil();
