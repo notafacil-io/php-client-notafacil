@@ -41,6 +41,8 @@ class CustomersNotaFacil extends BaseService
         return $this->request( $this->base_url() . $this->endpoint->customers->listAll );
     }
 
+
+
     public function addAddlAddress($idCustomer, $payload): NotaFacilResource
     {
         return $this->request( $this->base_url() . str_replace(':id', $idCustomer , $this->endpoint->customers->additional->address->register), 'POST', $payload);
@@ -95,12 +97,6 @@ class CustomersNotaFacil extends BaseService
         return $this->request( $this->base_url() . str_replace([':id_customer',':id_telephone'], [$idCustomer, $idPhone] , $this->endpoint->customers->additional->telephone->byID));
     }
     
-
-    
-
-    
-
-
    
 
 }
