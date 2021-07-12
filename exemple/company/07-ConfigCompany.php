@@ -12,8 +12,16 @@ try {
         "token-bearer" => "TOKEN_BEARER"
     ];
 
-   
-    $companyData = (new CompanyNotaFacil($credentialsToken))->deleteCompany(157);
+
+    $payload = [
+        "natureza_operacao" => 1,
+        "regime_tributacao" => 1,
+        "regime_especial_tributacao" => 1,
+        "usuario_prefeitura" => "visualhost",
+        "senha_prefeitura" => "nfe!@#nfe"
+    ];
+
+    $companyData = (new CompanyNotaFacil($credentialsToken))->configCompany($payload);
 
     dump($companyData->getContent(), $companyData->getStatusCode());
       

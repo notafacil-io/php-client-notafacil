@@ -7,8 +7,8 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 try {
 
     $credentialsToken = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+        "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
 
     $payload = [

@@ -7,8 +7,8 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 try {
 
     $credentialsToken = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+         "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
 
 
@@ -31,7 +31,7 @@ try {
 
 
     
-    $userData = (new UserNotaFacil($credentials))->addUser($payload);
+    $userData = (new UserNotaFacil($credentialsToken))->addUser($payload);
 
     dump($userData->getContent(), $userData->getStatusCode());
       

@@ -6,12 +6,12 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
 
-    $credentials = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+    $credentialsToken = [
+        "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
     
-    $companyData = (new CompanyNotaFacil($credentials))->showByID(2);
+    $companyData = (new CompanyNotaFacil($credentialsToken))->showByID(2);
 
     dump($companyData->getContent(), $companyData->getStatusCode());
       

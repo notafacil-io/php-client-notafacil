@@ -1,17 +1,17 @@
 <?php
 include_once(__DIR__.'/../../vendor/autoload.php');
 
-use NotaFacil\Common\Services\CitesNotaFacil;
+use NotaFacil\Common\Services\CitiesNotaFacil;
 use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
 
-    $credentials = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+    $credentialsToken = [
+        "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
     
-    $companiesData = (new CitesNotaFacil($credentials))->citiesApproved();
+    $companiesData = (new CitiesNotaFacil($credentialsToken))->citiesApproved();
 
     dump($companiesData->getContent(), $companiesData->getStatusCode());
       
