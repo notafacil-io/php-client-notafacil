@@ -70,6 +70,42 @@ return [
 
         ],
 
+        'nfse' => [
+            'register' => '/v1/nfse/salvar',
+            'update' => '/v1/nfse/atualizar/:id',
+            'delete' => 'v1/nfse/deletar/:id',
+
+            'byID' => '/v1/nfse/id/:id',
+            'listAll' => '/v1/nfse',
+
+            'issue' => '/v1/nfse/emitir',
+            'cancelIssue' => '/v1/nfse/cancelar',
+            
+            'consultRPS' => '/v1/nfse/consultarRps',
+            'consultNFSe' => '/v1/nfse/consultarNfse',
+            'consult' => '/v1/nfse/consultar',
+            'consultCancellation' => '/v1/nfse/consultarCancelamento',
+
+            'calculation' => '/v1/calculos/nfse-impostos',
+
+            'parameters' => [
+                'main' => [
+                    'register' => '/v1/nfse/params/salvar',
+                    'delete' => '/v1/nfse/params/deletar/:id',
+                    'search' => '/v1/nfse/params/PROD',
+                ],
+                'services' => [
+                    'register' => '/v1/nfse/servicoParams/salvar',
+                    'update' => '/v1/nfse/servicoParams/atualizar/:id',
+                    'delete' => '/v1/nfse/servicoParams/deletar/:id',
+
+                    'byID' => '/v1/nfse/servicoParams/id/:id',
+                    'listAll' => '/v1/nfse/servicoParams/todos',
+                ],
+
+            ]
+        ],
+
         'softhouse' => [
             'logada' => '/v1/softhouse/logada',
             'atualizar' => '/v1/softhouse/atualizar'
