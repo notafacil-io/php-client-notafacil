@@ -1,7 +1,7 @@
 <?php
 namespace NotaFacil\Common\Services;
 
-use NotaFacil\Common\ClientNotaFacil;
+use NotaFacil\Common\AuthNotaFacil;
 use NotaFacil\Common\Traits\RequestTrait;
 use NotaFacil\Common\Resources\NotaFacilResource;
 
@@ -13,7 +13,7 @@ class SofthouseNotaFacil
     use RequestTrait;
     public $clientNotaFacil;
 
-    public function __construct(ClientNotaFacil $clientNotaFacil)
+    public function __construct(AuthNotaFacil $clientNotaFacil)
     {
         $this->clientNotaFacil = $clientNotaFacil;
     }

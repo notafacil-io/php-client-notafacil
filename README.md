@@ -86,7 +86,7 @@ try {
         'secret_key' => 'SECRET_KEY_SOFTHOUSE'
     ];
     
-    $dataAuth = ( new \NotaFacil\Common\ClientNotaFacil() )->attempt($credentials);
+    $dataAuth = ( new \NotaFacil\Common\AuthNotaFacil() )->attempt($credentials);
     $auth = $result->responseAuth();
     
     
