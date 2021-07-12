@@ -6,7 +6,7 @@ use NotaFacil\Common\Resources\NotaFacilResource;
 /**
  *  Class responsible for the authentication in the Nota Fácil API.
  */
-class CitesNotaFacil extends BaseService
+class CitiesNotaFacil extends BaseService
 {
     use RequestTrait;
                                                                                                                                                                                                                

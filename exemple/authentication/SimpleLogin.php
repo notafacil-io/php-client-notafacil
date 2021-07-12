@@ -9,9 +9,9 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 try {
     
     $credentials = [
-        'login' => '',
-        'password' => '',
-        'secret_key' => ''
+        "login" => "LOGIN_SOFTHOUSE",
+        "password" => "SENHA_SOFTHOUSE",
+        "secret_key" => "SECRET_KEY_SOFTHOUSE"
     ];
 
     $clientNotaFacil =(new AuthNotaFacil())->attempt($credentials)

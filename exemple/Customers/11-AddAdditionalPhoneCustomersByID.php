@@ -1,8 +1,8 @@
 <?php
 include_once(__DIR__.'/../../vendor/autoload.php');
 
+use NotaFacil\Common\Services\CustomersNotaFacil;
 use NotaFacil\Common\Exceptions\NotaFacilException;
-use NotaFacil\Common\Services\ServicesAndCnaeNotaFacil;
 
 try {
 
@@ -11,7 +11,14 @@ try {
         "token-bearer" => "TOKEN_BEARER"
     ];
 
-    $services = (new ServicesAndCnaeNotaFacil($credentialsToken))->searchServices('cão');
+    $payload = [
+        "ddd" => "41",
+        "numero" => "4196105002",
+        "ramal" => "1",
+        "tipo_telefone" => 2
+    ];
+
+    $services = (new CustomersNotaFacil($credentialsToken))->addAddlPhone(138,$payload);
 
     dump($services->getContent(), $services->getStatusCode());
       

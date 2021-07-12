@@ -6,9 +6,9 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
 
-    $credentials = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+    $credentialsToken = [
+        "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
 
     $payload = [
@@ -17,7 +17,7 @@ try {
         "certificado_tipo" => ""
     ];
     
-    $certificateData = (new CertificateNotaFacil($credentials))->addCertificate($payload);
+    $certificateData = (new CertificateNotaFacil($credentialsToken))->addCertificate($payload);
 
     dump($certificateData->getContent(), $certificateData->getStatusCode());
       

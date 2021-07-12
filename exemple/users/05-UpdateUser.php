@@ -7,10 +7,9 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 try {
 
     $credentialsToken = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+         "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
-
 
     $payload = [
         "nome" => "Otávio2 Calebe Lucas Assunção",
@@ -22,7 +21,7 @@ try {
         "status" => true,
         "telefone" => [
             "ddd" => "41",
-            "numero" => "995079451",
+            "numero" => "995079455",
             "ramal" => "1",
             "tipo_telefone" => 1
         ],
@@ -31,7 +30,7 @@ try {
 
 
     
-    $userData = (new UserNotaFacil($credentials))->updateUser(13, $payload);
+    $userData = (new UserNotaFacil($credentialsToken))->updateUser(22, $payload);
 
     dump($userData->getContent(), $userData->getStatusCode());
       

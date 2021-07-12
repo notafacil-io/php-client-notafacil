@@ -7,11 +7,11 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 try {
 
     $credentialsToken = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+         "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
     
-    $userData = (new UserNotaFacil($credentials))->deleteUser(13);
+    $userData = (new UserNotaFacil($credentialsToken))->deleteUser(22);
 
     dump($userData->getContent(), $userData->getStatusCode());
       

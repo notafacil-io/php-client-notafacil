@@ -1,8 +1,8 @@
 <?php
 include_once(__DIR__.'/../../vendor/autoload.php');
 
-use NotaFacil\Common\Services\UserNotaFacil;
 use NotaFacil\Common\Exceptions\NotaFacilException;
+use NotaFacil\Common\Services\ServicesAndCnaeNotaFacil;
 
 try {
 
@@ -10,10 +10,11 @@ try {
          "consumer-id" => "CONSUMER_ID",
         "token-bearer" => "TOKEN_BEARER"
     ];
-    
-    $userData = (new UserNotaFacil($credentialsToken))->showByID(22);
 
-    dump($userData->getContent(), $userData->getStatusCode());
+    
+    $services = (new ServicesAndCnaeNotaFacil($credentialsToken))->listCnae();
+
+    dump($services->getContent(), $services->getStatusCode());
       
 } catch (NotaFacilException $th) {
     dump($th->getMessage(), $th->getCode());

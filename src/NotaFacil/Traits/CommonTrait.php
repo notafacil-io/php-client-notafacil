@@ -58,7 +58,9 @@ trait CommonTrait
     private function loadFile()
     {
         $pathRoot = str_replace('src/NotaFacil/Traits', '', __DIR__);
+       
         $fileConfig ='config.php';
+        
         if (file_exists($pathRoot.'/config-dev.php')) {
             $fileConfig ='config-dev.php';
         }

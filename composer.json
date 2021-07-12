@@ -36,8 +36,7 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
-        "guzzlehttp/guzzle": "^6.3"
+        "php": "^7.2.5"
     },
  
     "require-dev": {
@@ -47,7 +46,8 @@
     "autoload": {
         "psr-4": {
             "NotaFacil\\Common\\":"src/NotaFacil"
-        }
+        },
+        "files": ["src/NotaFacil/helper/helperNotafacil.php"]
     },
     "autoload-dev": {
         "psr-4": {
@@ -67,49 +67,3 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

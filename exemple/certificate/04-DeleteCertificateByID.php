@@ -6,12 +6,12 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
 
-    $credentials = [
-        "consumer-id" => "",
-        "token-bearer" => "Bearer "
+    $credentialsToken = [
+        "consumer-id" => "CONSUMER_ID",
+        "token-bearer" => "TOKEN_BEARER"
     ];
     
-    $certificateData = (new CertificateNotaFacil($credentials))->deleteCertificate($idCertificate);
+    $certificateData = (new CertificateNotaFacil($credentialsToken))->deleteCertificate($idCertificate);
 
     dump($certificateData->getContent(), $certificateData->getStatusCode());
       
