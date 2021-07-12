@@ -46,6 +46,11 @@ class CompanyNotaFacil extends BaseService
         return $this->request( $this->base_url() . str_replace(':id', $idCompany , $this->endpoint->company->delete), 'DELETE');
     }
 
+    public function configCompany($payload): NotaFacilResource
+    {
+        return $this->request( $this->base_url() . $this->endpoint->company->config, 'POST', $payload);
+    }
+
    
    
 
