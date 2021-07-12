@@ -1,8 +1,6 @@
 <?php
 namespace NotaFacil\Common\Traits;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use NotaFacil\Common\Resources\NotaFacilResource;
 use NotaFacil\Common\Exceptions\NotaFacilException;
 
@@ -84,7 +82,7 @@ trait RequestTrait
     public function processDataResponse($response, $paramRequest)
     {  
        
-        if($response["http_status"] == 200 || $response["http_status"] == 201){
+        if($response["http_status"] == 200 || $response["http_status"] == 201 || $response["http_status"] == 422){
            return $this->simplifiesAnswer($response, $paramRequest);
         }
 
@@ -95,13 +93,13 @@ trait RequestTrait
         }
 
         throw (new NotaFacilException( 
-            __NotaFacilCommonErros('errors.NOT_VALID', [':ERROR_SERVER:' => (!empty($response['response']["data"]["message"]))? $response['response']["data"]["message"] : $response['response']["mensagem"]]) 
+            __NotaFacilCommonErros('errors.NOT_VALID', [':ERROR_SERVER:' => (!empty($response['response']["data"]["message"]))? $response['response']["data"]["message"] : ((!empty($response["response"]['message']))? $response["response"]['message'] : $response["response"]['mensagem'])]) 
         ))->withCode($response["http_status"]);
     }
 
     protected function simplifiesAnswer($response, $paramRequest)
     {
-       $this->contentBody[] = (!empty( $response["response"]['data'] ))?  $response["response"]['data'] :  $response["response"]['mensagem'];
+       $this->contentBody[] = (!empty( $response["response"]['data'] ))?  $response["response"]['data'] :  ((!empty($response["response"]['message']))? $response["response"]['message'] : $response["response"]['mensagem']);
         
        if(!empty($response['response']["meta"])){
             $this->extractPagination($response, $paramRequest);

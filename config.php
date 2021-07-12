@@ -73,7 +73,7 @@ return [
         'nfse' => [
             'register' => '/v1/nfse/salvar',
             'update' => '/v1/nfse/atualizar/:id',
-            'delete' => 'v1/nfse/deletar/:id',
+            'delete' => '/v1/nfse/deletar/:id',
 
             'byID' => '/v1/nfse/id/:id',
             'listAll' => '/v1/nfse',
