@@ -1,6 +1,8 @@
 <?php
 namespace NotaFacil\Common\Traits;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use NotaFacil\Common\Resources\NotaFacilResource;
 use NotaFacil\Common\Exceptions\NotaFacilException;
 
@@ -99,13 +101,19 @@ trait RequestTrait
 
     protected function simplifiesAnswer($response, $paramRequest)
     {
-       $this->contentBody[] = (!empty( $response["response"]['data'] ))?  $response["response"]['data'] :  ((!empty($response["response"]['message']))? $response["response"]['message'] : $response["response"]['mensagem']);
+       $this->contentBody[] = $this->extractContentBodyInResponse($response);
         
        if(!empty($response['response']["meta"])){
             $this->extractPagination($response, $paramRequest);
        }
 
        return ['contents' => $this->extractBody(), 'statusCode' => $response["http_status"]];
+    }
+
+    protected function extractContentBodyInResponse($response)
+    {
+        $content = $response["response"];
+        return  (!empty( $content['data'] ))?  $content['data'] :  ((!empty($content['message']))? $content['message'] : ((!empty($content['nfs_totais']))? $content['nfs_totais'] :$content['mensagem']));
     }
 
     protected function extractPagination($response, $paramRequest)
