@@ -75,31 +75,32 @@ Exemplo simples para autenticar em nossa API. Caso não seja possivel autenticar
 
 ```php
 <?php
-include_once(__DIR__.'/vendor/autoload.php');
 
+include_once(__DIR__.'/../../vendor/autoload.php');
+
+
+use NotaFacil\Common\Services\AuthNotaFacil;
 use NotaFacil\Common\Exceptions\NotaFacilException;
 
 try {
+    
     $credentials = [
-        'login'      => 'NOME_USUARIO',
-        'password'   => 'SENHA_USUARIO',
-        'secret_key' => 'SECRET_KEY_SOFTHOUSE'
+        "login" => "LOGIN_SOFTHOUSE",
+        "password" => "SENHA_SOFTHOUSE",
+        "secret_key" => "SECRET_KEY_SOFTHOUSE"
     ];
-    
-    $dataAuth = ( new \NotaFacil\Common\AuthNotaFacil() )->attempt($credentials);
-    $auth = $result->responseAuth();
-    
-    
-    var_dump($dataAuth); // Retorna uma instancia da classe AuthClient
-    
-    var_dump($auth); // Recebe os dados do cliente do nota facil autenticado
+
+    $clientNotaFacil =(new AuthNotaFacil())->attempt($credentials)
+                       // ->getResponse();
+                       ->getDataAuth();
+
+    dump($clientNotaFacil);
 
 } catch (NotaFacilException $th) {
-    var_dump($th);
+    dump($th->getMessage(), $th->getCode());
 }
-
 ```
-##### Você tambem pode ver esse exemplo nessa pasta `./exemple/01-authenticate.php` e testar com o seguinte comando `php -S localhost:8000 ./exemple/01-authenticate.php`
+##### Você tambem pode ver esse exemplo nessa pasta `./exemple/authentication/SimpleLogin.php` e testar com o seguinte comando `php -S localhost:8000 ./exemple/authentication/SimpleLogin.php`
 
 --
 ## Problemas? <span id="issue"></span>
