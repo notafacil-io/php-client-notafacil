@@ -3,6 +3,7 @@ namespace NotaFacil\Common\Services;
 
 use GuzzleHttp\Exception\ClientException;
 
+use NotaFacil\Common\Traits\RequestTrait;
 use NotaFacil\Common\Services\BaseService;
 use NotaFacil\Common\Validators\AuthValidator;
 use NotaFacil\Common\Exceptions\NotaFacilException;
@@ -12,6 +13,7 @@ use NotaFacil\Common\Exceptions\NotaFacilException;
  */
 class AuthNotaFacil extends BaseService
 {
+    use RequestTrait;
     protected $dataAuth;
     protected $dataResponse;
     protected $credentials;
@@ -40,14 +42,15 @@ class AuthNotaFacil extends BaseService
     public function attempt(array $credentials): AuthNotaFacil
     {
 
+       
         AuthValidator::validateInputValidate($credentials);
 
         $this->setDataToAuth($credentials);
 
-        $this->dataResponse = $this->invokeLogin();
-
-        $this->dataAuth['token-bearer'] = 'Bearer ' . $this->dataResponse['data']['access_token'];
-        $this->dataAuth['token-expires-in'] = $this->dataResponse['data']['expires_in'];
+        $this->dataResponse = ($this->request( $this->base_url() . $this->endpoint->auth->login, 'POST',  $this->credentials))->getContent();
+        
+        $this->dataAuth['token-bearer'] = $this->dataResponse["token_type"] .' '. $this->dataResponse['access_token'];
+        $this->dataAuth['token-expires-in'] = $this->dataResponse['expires_in'];
 
         return $this;
     }
@@ -101,49 +104,12 @@ class AuthNotaFacil extends BaseService
      */
     protected function setDataToAuth(array $credentials)
     {
-        $this->credentials['secret-key'] = $credentials['secret_key'];
+    
+        $this->credentialsNotaFacil['secret-key'] = $credentials['secret_key'];
         $this->credentials['login'] = $credentials['login'];
         $this->credentials['password'] = $credentials['password'];
     }
 
-    /**
-     * Methood responsible for calling the login endpoint.
-     *
-     * @return void
-     */
-    protected function invokeLogin()
-    {
-        
-        try {
-            $client = new \GuzzleHttp\Client();
-            $urlLogin = $this->base_url() . $this->endpoint->auth->login;
-            
-            $response = $client->post($urlLogin,
-                [
-                    'headers' => ['Content-Type' => 'application/json', 'secret-key' => $this->credentials['secret-key']],
-
-                    'body' => json_encode(
-                        [
-                            "login" => $this->credentials['login'],
-                            "password" => $this->credentials['password'],
-                        ]
-                    )]
-            );
-
-            if ($response->getStatusCode() == 200) {
-                return json_decode($response->getBody()->getContents(), true);
-            }
-
-        } catch (ClientException $th) {
-
-            $response = \json_decode($th->getResponse()->getBody()->getContents(), true);
-
-            $message = (isset($response['data']['message'])) ? $response['data']['message'] : $response['message'];
-            $code = (isset($response['data']['code'])) ? $response['data']['code'] : $response['code'];
-
-            throw (new NotaFacilException($message))->withCode($code);
-        }
-
-    }
+    
 
 }

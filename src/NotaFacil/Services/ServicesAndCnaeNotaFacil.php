@@ -20,21 +20,12 @@ class ServicesAndCnaeNotaFacil extends BaseService
     {
         return $this->request( $this->base_url() . str_replace(':search', $search , $this->endpoint->services->search) );
     }
+
+    public function listCnae(): NotaFacilResource
+    {
+        return $this->request( $this->base_url() . $this->endpoint->services->cnae );
+    }
     
-    public function findCityByName( $cityName ): NotaFacilResource
-    {
-        return $this->request( $this->base_url() .  str_replace(':city_name', $cityName , $this->endpoint->cities->findCityByName) );
-    }
-
-
-    public function citiesApproved(): NotaFacilResource
-    {
-        return $this->request( $this->base_url() . $this->endpoint->cities->listAllApproved );
-    }
-
-    public function findApprovedByIBGE( $codeIBGE ): NotaFacilResource
-    {
-        return $this->request( $this->base_url() .  str_replace(':code_ibge', $codeIBGE , $this->endpoint->cities->findApprovedByIBGE) );
-    }
+   
 
 }
