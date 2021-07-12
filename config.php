@@ -24,6 +24,7 @@ return [
             'logged' => '/v1/empresa/logada',
             'listAll' => '/v1/empresa/todos',
             'byID' => '/v1/empresa/id/:id',
+            'config' => '/v1/empresa/config',
         ],
         'certificate' => [
             'register' => '/v1/certificado/salvar',
@@ -41,13 +42,34 @@ return [
         ],
         'services' => [
             'search' => '/v1/servico?descricao=:search',
-            
-            'findCityByName' => '/v1/cidade?nome=:city_name',
-
-            'listAllApproved' => '/v1/cidade/homologadas',
-            'findApprovedByIBGE' => '/v1/cidade/homologadas?codigo_ibge=:code_ibge',
-            
+            'cnae' => '/v1/cnae'
         ],
+
+        'customers' => [
+            'register' => '/v1/cliente/salvar',
+            'update' => '/v1/cliente/atualizar/:id',
+            'listAll' => '/v1/cliente/todos',
+            'byID' => '/v1/cliente/id/:id',
+            'delete' => '/v1/cliente/deletar/:id',
+            'additional' => [
+                'address' => [
+                    'register' => '/v1/cliente/:id/enderecos/salvar',
+                    'update' => '/v1/cliente/:id_customer/enderecos/atualizar/:id_address',
+                    'byID' => '/v1/cliente/:id_customer/enderecos/id/:id_address',
+                    'listAll' => '/v1/cliente/:id_customer/enderecos/todos',
+                    'delete' => '/v1/cliente/:id_customer/enderecos/deletar/:id_address',
+                ],
+                'telephone' => [
+                    'register' => '/v1/cliente/:id/telefones/salvar',
+                    'update' => '/v1/cliente/:id_customer/telefones/atualizar/:id_telephone',
+                    'byID' => '/v1/cliente/:id_customer/telefones/id/:id_telephone',
+                    'listAll' => '/v1/cliente/:id_customer/telefones/todos',
+                    'delete' => '/v1/cliente/:id_customer/telefones/deletar/:id_telephone',
+                ]
+            ],
+
+        ],
+
         'softhouse' => [
             'logada' => '/v1/softhouse/logada',
             'atualizar' => '/v1/softhouse/atualizar'
